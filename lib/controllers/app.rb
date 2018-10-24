@@ -1,4 +1,5 @@
 class App
+
   def welcome
     puts "Welcome to movie phone whats your name?"
     user_name = gets.chomp
@@ -10,18 +11,20 @@ class App
     User.last
   end# end welcome
 
-  def get_movie_from_user
-    puts "What movie would you like to review"
-    user_movie = gets.chomp
+  def search_for_movies
+    puts "What movie would you like to search for"
+    user_movies = gets.chomp
     # query api for user movie string and show him results.
-    user_movie
+    user_movies
   end
 
-  def get_movie_from_api
-    #will return a movie hash from the api
+  #takes an array of movies and returns an array of those movies with
+  # title, release date, and movie id as a string
+  def show_choices(array_movies)
+    array_movies.map do |movie|
+      "'#{movie["title"]}'  #{movie["release_date"]}  #{movie["id"].to_s}"
+    end
   end
-
-
 
 end
 
