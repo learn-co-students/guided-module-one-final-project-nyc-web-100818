@@ -3,23 +3,40 @@ require 'rest-client'
 require 'json'
 require 'uri'
 require 'net/http'
-require_relative './actor.rb'
+require_relative '../apps/models/actor.rb'
+require_relative '../apps/models/actor_movie.rb'
+require_relative '../apps/models/movie.rb'
 
-movie = "notebook"
-key = "0179b2479138dbb938e66fc2075e2501"
+class ApiCommunicator
+  attr_accessor :movie
+  attr_reader :key
 
-movie_search_request = RestClient.get("https://api.themoviedb.org/3/search/movie?api_key=#{key}&language=en-US&query=#{movie}&page=1&include_adult=false")
-movie_search_response = JSON.parse(movie_search_request) 
+  def initialize(movie)
+    @movie = movie
+    @key = "0179b2479138dbb938e66fc2075e2501"
+  end
 
+  def find_movie_titles
+    movie_search_request = RestClient.get("https://api.themoviedb.org/3/search/movie?api_key=#{@key}&language=en-US&query=#{@movie}&page=1&include_adult=false")
+    movie_search_response = JSON.parse(movie_search_request)
+  end
+
+# movie = "notebook"
+# key = "0179b2479138dbb938e66fc2075e2501"
+
+# movie_search_request = RestClient.get("https://api.themoviedb.org/3/search/movie?api_key=#{key}&language=en-US&query=#{movie}&page=1&include_adult=false")
+# movie_search_response = JSON.parse(movie_search_request)
+#
+
+end
 # puts "Would you like to save this movie to your profile?"
 
-# user_input = gets.chomp 
+# user_input = gets.chomp
 
 # if user_input == "Y"
 #     Movie.new()
-# end 
+# end
 
-binding.pry
 
 
 #  movie_search_response = RestClient.get('https://api.themoviedb.org/3/configuration?api_key=0179b2479138dbb938e66fc2075e2501')
