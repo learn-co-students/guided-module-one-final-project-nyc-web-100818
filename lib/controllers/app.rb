@@ -29,7 +29,7 @@ class App
   def show_search_results(array_movies)
     movie_results = []
     array_movies.each_with_index do |movie, index|
-      movie_results << {number: index + 1, title: movie["title"] , release_date: movie["release_date"], db_id: movie["id"]}
+      movie_results << {number: index + 1, title: movie["title"] , release_date: movie["release_date"], genre_ids: movie["genre_ids"], db_id: movie["id"] }
     end
     movie_results
     ##choose movie
@@ -50,6 +50,7 @@ class App
     # we would like a attribute hash from metaprogramming but we forgot how to do that.
     binding.pry
     movie = Movie.find_or_create_by(title: movie_from_user[:title])
+    Review.movie_id = movie.id
   end
 
   # create review from return val of find_or_create_movie

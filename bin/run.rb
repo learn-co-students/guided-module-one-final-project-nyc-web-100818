@@ -5,6 +5,7 @@ communicator = ApiCommunicator.new
 user = app.welcome
 movie = app.search_for_movies
 response = communicator.search_for_movie(movie)
+genres_list = communicator.get_genres
 array_movies = response["results"]
 
 if array_movies.count > 1
@@ -19,6 +20,12 @@ if array_movies.count > 1
 
 else
   puts "else statement "
+end
+
+def match_genres_with_movie
+  array_movies.map do |movie|
+    movie["genre_ids"]
+  end
 end
 
 binding.pry
