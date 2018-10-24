@@ -29,21 +29,26 @@ class App
   def show_choices(array_movies)
     movie_results = []
     array_movies.each_with_index do |movie, index|
-      movie_results << "'#{index + 1}', #{movie["title"]}'  #{movie["release_date"]} #{movie["id"].to_s}"
+      movie_results << {number: index + 1, title: movie["title"] , release_date: movie["release_date"], db_id: movie["id"]}
     end
     movie_results
+    ##choose movie
   end
 
-  def choose_movie_from_choices(movie_choice)
-    
+  def pick_movie(choices, choice)
+    movie = choices.find do |movie|
+      movie[:number] == choice
+    end
+
+    # get_the_movie from the use
   end
+
+
 
 
   def find_or_create_movie(movie_from_user)
     Movie.find_or_create_by(title: movie_from_user)
   end
-
-
 
   # create review from return val of find_or_create_movie
 
