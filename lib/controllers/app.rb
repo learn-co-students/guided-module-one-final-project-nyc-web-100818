@@ -1,5 +1,4 @@
 class App
-
   def welcome
     puts "Welcome to movie phone whats your name?"
     user_name = gets.chomp
