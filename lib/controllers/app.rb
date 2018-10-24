@@ -1,8 +1,14 @@
 class App
 
+  #prints out a welcome message prompts for username returns username
   def welcome
-    puts "Welcome to movie phone whats your name?"
+    puts "Welcome to movie tinder whats your name?"
     user_name = gets.chomp
+    user_name
+  end
+
+  #looks up  a user by username if found prints welcome back message if not creates new user returns a User
+  def find_create_user(user_name)
     if User.find_by name: user_name
       puts "Welcome back #{user_name}"
     else
@@ -21,10 +27,25 @@ class App
   #takes an array of movies and returns an array of those movies with
   # title, release date, and movie id as a string
   def show_choices(array_movies)
-    array_movies.map do |movie|
-      "'#{movie["title"]}'  #{movie["release_date"]}  #{movie["id"].to_s}"
+    movie_results = []
+    array_movies.each_with_index do |movie, index|
+      movie_results << "'#{index + 1}', #{movie["title"]}'  #{movie["release_date"]} #{movie["id"].to_s}"
     end
+    movie_results
   end
+
+  def choose_movie_from_choices(movie_choice)
+    
+  end
+
+
+  def find_or_create_movie(movie_from_user)
+    Movie.find_or_create_by(title: movie_from_user)
+  end
+
+
+
+  # create review from return val of find_or_create_movie
 
 end
 
