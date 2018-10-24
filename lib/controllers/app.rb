@@ -26,7 +26,7 @@ class App
 
   #takes an array of movies and returns an array of those movies with
   # title, release date, and movie id as a string
-  def show_choices(array_movies)
+  def show_search_results(array_movies)
     movie_results = []
     array_movies.each_with_index do |movie, index|
       movie_results << {number: index + 1, title: movie["title"] , release_date: movie["release_date"], db_id: movie["id"]}
@@ -35,19 +35,21 @@ class App
     ##choose movie
   end
 
-  def pick_movie(choices, choice)
-    movie = choices.find do |movie|
+  # takes an array of movies and a choice (integer) from the user to pick the movie the user wants from the array to add a review returns the movie hash
+  def pick_movie(array_of_movies , choice)
+    movie = array_of_movies.find do |movie|
       movie[:number] == choice
     end
-
-    # get_the_movie from the use
+    movie
   end
 
 
 
 
   def find_or_create_movie(movie_from_user)
-    Movie.find_or_create_by(title: movie_from_user)
+    # we would like a attribute hash from metaprogramming but we forgot how to do that.
+    binding.pry
+    movie = Movie.find_or_create_by(title: movie_from_user[:title])
   end
 
   # create review from return val of find_or_create_movie
