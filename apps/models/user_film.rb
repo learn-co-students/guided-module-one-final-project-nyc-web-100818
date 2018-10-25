@@ -1,7 +1,7 @@
 class UserFilm < ActiveRecord::Base
-belongs_to :films
-belongs_to :users
+belongs_to :film
+belongs_to :user
 
-    
-             
+
+
 end
