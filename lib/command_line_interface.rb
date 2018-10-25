@@ -1,13 +1,14 @@
 # class CommandLineInterface
 
 def welcome_message
-  puts "Hi, welcome to The Movie Database where all of your desires will come true!"
+  puts "Hi, welcome to The Movie Database. \nIf an overview of your favorite movie is what you came for, \nyou are in the right place."
   # get_user
 end
 
 
 def get_user
-  puts 'Please enter your name'
+  
+  puts "\nFirst, we want to get to know you. Please tell us your first name."
   name = gets.chomp # => ERIC
   
   # binding.pry
@@ -16,30 +17,18 @@ end
 
 
 def create_user(name)
-  # binding.pry
   User.create(:name => name)
 end
 
-# def find_movie
-#   puts "What is your favorite movie?"
-# end
 def gets_user_input
-  puts "What is your favorite movie?"
+  puts "If you could watch any movie in the galaxy, what movie would you choose?\n"
    movie = gets.chomp
 end
 
 
-def run
-  welcome_message
-  input = gets_user_input
-  find_movie(input)
+def create_film(title, overview)
+  Film.create(title: title, description: overview)
 end
-
-# def fav_movie
-#   puts 'What is your favorite movie?'
-#   fav_move = gets.chomp
-#   user.fav_movie = fav_move
-# end
 
 def bye_dude
   puts "BYE #{user.name}"
