@@ -1,2 +1,4 @@
 
-# Movie.create(title: "Notebook", genre: "Romance", description: "stuff", run_time: 50, release_date: 2003)
+z = User.create(name: "Z")
+
+broad = Films.create(title: "Broad Street", movie_id: 500)
