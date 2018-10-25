@@ -44,13 +44,18 @@ class App
   end
 
 
-
+  # t.string  "title"
+  # t.text    "content"
+  # t.integer "movie_id"
+  # t.integer "user_id"
+  # t.index ["movie_id"], name: "index_reviews_on_movie_id"
+  # t.index ["user_id"], name: "index_reviews_on_user_id"
 
   def find_or_create_movie(movie_from_user)
-    # we would like a attribute hash from metaprogramming but we forgot how to do that.
     binding.pry
     movie = Movie.find_or_create_by(title: movie_from_user[:title])
-    Review.movie_id = movie.id
+    movie.genre = movie_results["genre"[0]]
+    Review.movie = movie
   end
 
   # create review from return val of find_or_create_movie
