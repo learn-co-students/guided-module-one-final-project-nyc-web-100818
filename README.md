@@ -1,3 +1,12 @@
+1. create model
+2. create migration
+  => tell ActiveRecord how to change the database to reflect the next line (how you want the model to look like) -> db:create_migration
+3. run migration -> db:migrate
+4. check your schema
+5. test
+
+API -> movies https://api.themoviedb.org/3/movie/550?api_key=0179b2479138dbb938e66fc2075e2501
+
 # Module One Project 
 
 Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
