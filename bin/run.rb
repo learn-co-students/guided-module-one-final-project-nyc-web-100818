@@ -13,16 +13,14 @@ title = ApiCommunicator.get_title(list)
 description = ApiCommunicator.get_description(title)
 film_id = ApiCommunicator.create_film(title, description)
 
-
-user_film_id = ApiCommunicator.create_user_film(user_id, film_id)
- User.print_movies
-
+user_film_id = ApiCommunicator.create_user_film(user_id.id, film_id.id)
+ # User.print_movies
 
 
-# User.find(user_id.id).print_movies
 
+User.find(user_id.id).print_movies
 # def print_user_films(user_name)
 #   user = User.find_by(name: user_name)
 # end
-
-puts "End"
+puts '*' * 50
+puts "Your results brought to you by: Sarah Pai and Eric Laitman (The Greatest)"

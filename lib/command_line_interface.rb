@@ -8,11 +8,13 @@ end
 def get_user
   puts "\nFirst, we want to get to know you. Please tell us your first name."
   name = gets.chomp # => ERIC
+  create_user(name)
 end
 
 
 def create_user(name)
   User.create(:name => name)
+  # User.save
 end
 
 def gets_user_input

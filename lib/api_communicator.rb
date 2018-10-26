@@ -60,7 +60,9 @@ class ApiCommunicator
    end
 
     def self.create_user_film(user_id, film_id)
-      UserFilm.create(user_id: user_id, film_id: film_id)
+
+      film = UserFilm.create(user_id: user_id, film_id: film_id)
+      
 
     end
 
