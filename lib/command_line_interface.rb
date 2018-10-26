@@ -1,12 +1,12 @@
 
 def welcome_message
-  puts "Hi, welcome to The Movie Database. \nIf an overview of your favorite movie is what you came for, \nyou are in the right place."
+  puts "\n" + "\n" + "Hi, welcome to The Movie Review Database." + "\n" + "\n" + "Here, you will find a review for any movie of your choice."
   # get_user
 end
 
 
 def get_user
-  puts "\nFirst, we want to get to know you. Please tell us your first name."
+  puts "\n" + "Type in your first name to get started so we know you're real."
   name = gets.chomp # => ERIC
   create_user(name)
 end
@@ -18,7 +18,7 @@ def create_user(name)
 end
 
 def gets_user_input
-  puts "If you could watch any movie in the galaxy, what movie would you choose?\n"
+  puts "Now, choose the movie you would like to know more about.\n"
    movie = gets.chomp
 end
 

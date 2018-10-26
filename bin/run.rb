@@ -22,5 +22,6 @@ User.find(user_id.id).print_movies
 # def print_user_films(user_name)
 #   user = User.find_by(name: user_name)
 # end
+puts "\n" + "End of the review!"
 puts '*' * 50
 puts "Your results brought to you by: Sarah Pai and Eric Laitman (The Greatest)"
